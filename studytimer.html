@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Study Timer
+        </title>
+        <style>
+            .background{
+                background-color: rgb(249, 197, 151);
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                font-family:Verdana;
+                transition: 0.2s;
+            }
+            .maincont{
+                background-color: rgb(255, 255, 255);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 500px;
+                margin-top: 70px;
+                padding: 20px;
+                border-radius: 30px;
+            }
+            .time{
+                font-size: 120px;
+                margin-bottom: 60px;
+            }
+            .contbut{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 50px;
+            }
+            .cont1{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 500px;
+                margin-bottom: 20px;
+            }
+            .titlebut{
+                background-color: rgb(138, 18, 18);
+                color: rgb(255, 255, 255);
+                font-size: 20px;
+                border-radius: 10px;
+                border: color;
+                border-style: solid;
+                border-color: rgb(80, 1, 1);
+                border-width: 4px;
+                padding: 10px 15px;
+            }
+
+            .cont2{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 500px;
+            }
+            .arrow2{
+                height: 18px;
+                width: 18px;
+                border-radius: 100px;
+                animation-name: arrowhd;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+
+            }
+            @keyframes arrowhd{
+                from{transform: rotate(0deg);}
+                to{transform: rotate(90deg);}
+            }
+            .arrow{
+                height: 18px;
+                width: 18px;
+                border-radius: 100px;
+                transform: rotate(0deg);
+                transition: 0.5s;
+            }
+            .choice1{
+                display: flex;
+                flex-direction: row;
+                position: relative;
+            }
+            .chcbox{
+                width: 100px;
+                background-color: rgb(243, 243, 243);
+                border-style: solid;
+                border-color: black;
+                border-width: 2px;
+                margin-left: 5px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            .start{
+                background-color: rgb(38, 38, 38);
+                color:white;
+                font-size: 27px;
+                width: 150px;
+                height: 50px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                border-radius: 1000px;
+                transition: 0.2s;
+                cursor: pointer;
+                border-style: solid;
+            }
+            .start:hover{
+                background-color: white;
+                border-style: solid;
+                border-color: black;
+                color: black;
+            }
+            .setme{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                background-color: rgb(255, 255, 255);
+                height: 0px;
+                width: 50px;
+                top: 16px;
+                left:23px;
+                width: 104px;
+            }
+            .setme2{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                background-color: black;
+                height: 100px;
+                width: 50px;
+                top: 16px;
+                left:23px;
+                width: 104px;
+                animation-name: dropdown;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+            }
+            .settime{
+                padding: 1px 9px;
+                font-size: 14px;
+                cursor: pointer;
+                overflow: hidden;
+                color: white;
+            }
+            .settime2{
+                padding: 1px 9px;
+                font-size: 14px;
+                cursor: pointer;
+                overflow: none;
+                color: white;
+            }
+            .settime2:hover{
+                background-color: white;
+                color: black;
+            }
+            .settime:hover{
+                background-color: white;
+                color: black;
+            }
+            @keyframes dropdown{
+                from {height: 0px;}
+                to {height: 100px;}
+            }
+            .startval{
+                background-color: rgb(193, 74, 0);
+                color: white;
+                padding: 15px 50px;
+                margin-bottom: 50px;
+                border-color: rgb(149, 0, 0);
+                border-radius: 20px;
+                border-style: solid;
+                border-width: 4px;
+                animation-name: startthis;
+                animation-duration: 0.4s;
+            }
+            @keyframes startthis{
+                from {padding: 0px 0px;}
+                to {padding: 15px 50px;}
+            }
+            .controln{
+                height: 50px;
+                transition: 0.2s;
+                cursor: pointer;
+            }
+            .controln:hover{
+                height: 55px;
+            }
+            .aftcont{
+                display: flex;
+                flex-direction: row;
+            }
+            .backdone{
+                background-color: rgba(0, 0, 0, 0.593);
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                top: 753px;
+                height: 753px;
+                right: 0px;
+                width: 1536px;
+                color: white;
+                font-family: Verdana;
+            }
+            .titlehead{
+                background-color: burlywood;
+                padding: 10px 50px;
+                font-family: Verdana;
+                font-size: 60px;
+                border-radius: 30px;
+                margin-bottom: 60px;
+                border-style:solid;
+                border-width: 5px;
+                pointer-events: none;
+            }
+            .homenow{
+                background-color: black;
+                border-radius: 100px;
+                padding: 10px 20px;
+                font-size: 30px;
+                border-style: solid;
+                cursor: pointer;
+                transition: 0.2s;
+                text-decoration: none;
+                color: white;
+            }
+            .homenow:hover{
+                font-size: 35px;
+                background-color: white;
+                border-color:black;
+                border-width: 4px;
+                color: black;
+            }
+        </style>
+    </head>
+
+    <body class = background>
+        <div class = maincont>
+            <div class = time>00:00</div>
+
+            <div class = contbut>
+                <div class = cont1>
+                    <div class = titlebut>
+                        Study Time
+                    </div>
+                    <div class = titlebut>
+                        Break Time
+                    </div>
+                    <div class = titlebut>
+                        Sessions
+                    </div>
+                </div>
+
+                <div class = cont2>
+                    <!--<div class = startval>
+                        60:00
+                    </div>
+                    <div class = startval>
+                        60:00
+                    </div>
+                    <div class = startval>
+                        3
+                    </div>-->
+                    <div class = choice1>
+                        <img class = arrow src = "rightarr.jpg">
+
+                        <div class = chcbox>
+                            choose
+                        </div>
+                        <div class = setme>
+                            <div class = settime>
+                                60:00
+                            </div>
+                            <div class = settime>
+                                50:00
+                            </div>
+                            <div class = settime>
+                                40:00
+                            </div>
+                            <div class = settime>
+                                30:00
+                            </div>
+                            <div class = settime>
+                                20:00
+                            </div>
+                        </div>
+                    </div>
+                    <div class = choice1>
+                        <img class = arrow src = "rightarr.jpg">
+                        
+                        <div class = chcbox>
+                            choose
+                        </div>
+                        <div class = setme>
+                            <div class = settime>
+                                15:00
+                            </div>
+                            <div class = settime>
+                                12:00
+                            </div>
+                            <div class = settime>
+                                10:00
+                            </div>
+                            <div class = settime>
+                                8:00
+                            </div>
+                            <div class = settime>
+                                5:00
+                            </div>
+                        </div>
+                    </div>
+                    <div class = choice1>
+                        <img class = arrow src = "rightarr.jpg">
+                        
+                        <div class = chcbox>
+                            choose
+                        </div>
+                        <div class = setme>
+                            <div class = settime>
+                                5
+                            </div>
+                            <div class = settime>
+                                4
+                            </div>
+                            <div class = settime>
+                                3
+                            </div>
+                            <div class = settime>
+                                2
+                            </div>
+                            <div class = settime>
+                                1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class = start>
+                Start
+            </div>
+
+        </div>
+
+        <div class = backdone>
+            <div class = titlehead>
+                CONGRATULATIONS ON FINISHING
+            </div>
+            <a href = "studytimer.html" class = homenow>
+                Home
+            </a>
+        </div>
+
+        <script src="studytimer.js"></script>
+    </body>
+</html>
+
+<!--REFERENCES-->
+<!--Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=6387">Pixabay</a>-->
